@@ -40,7 +40,7 @@
                     tickFormat: function(d) {
                         var dx = vm.data[0].values[d] && vm.data[0].values[d].x || 0;
                         if (dx > 0) {
-                            return d3.time.format('%x')(new Date(dx))
+                            return d3.time.format('%d/%m/%Y')(new Date(dx))
                         }
                         return null;
                     }
