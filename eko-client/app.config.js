@@ -3,5 +3,11 @@
 
   angular
     .module('eko')
-    .config();
+    .config(config);
+
+    function config(gmLibraryProvider) {
+      gmLibraryProvider.configure({
+        language: 'pt'
+      });
+    }
 })();

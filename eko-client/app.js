@@ -4,6 +4,7 @@
   .module('eko', [
     'ngRoute',
     'ngMaterial',
-    'nvd3'
-    ]);
+    'nvd3',
+    'GoogleMapsNative'
+  ]);
 })();

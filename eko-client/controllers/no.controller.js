@@ -1,27 +1,42 @@
-(function() {
+(function () {
   'use strict';
 
   angular
     .module('eko')
     .controller('noController', noController);
 
-    noController.$inject = ['$timeout'];
-    function noController($timeout) {
-      var vm = this;
-      vm.title = 'No'
+  noController.$inject = ['$mdToast'];
 
-      vm.user = null;
-  vm.users = null;
+  function noController($mdToast) {
+    var vm = this;
+    vm.title = 'No';
+    
+    (function init() {
+      configMaps();
+      vm.node = {};
+      vm.nodeArray = [1,2,3,4,5,6];
+    })();
 
-  vm.loadUsers = function() {
+    function configMaps() {
+      vm.optionsMaps = {
+        center: [37, -122], 
+        zoom: 4, 
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
 
-      vm.users =  vm.users  || [
-        { id: 1, name: 'Scooby Doo' },
-        { id: 2, name: 'Shaggy Rodgers' },
-        { id: 3, name: 'Fred Jones' },
-        { id: 4, name: 'Daphne Blake' },
-        { id: 5, name: 'Velma Dinkley' }
-      ];
-  };
+      vm.optionsMarkers = {
+        draggable: true
+      };
     }
+
+    vm.save = function() {
+      console.log(vm.node)
+      $mdToast.show(
+        $mdToast.simple()
+        .textContent('Salvo com Sucesso')
+        .position('top right')
+        .hideDelay(3000)
+      );
+    }
+  }
 })();

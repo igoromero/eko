@@ -9,41 +9,31 @@
       </div>
       <div class="body">
         <div class="row clearfix">
-          <div class="col-md-6 col-md-offset-3">
-            <div class="input-group">
-              <span class="input-group-addon">
-                 <i class="material-icons">label</i>
-              </span>
-              <div class="form-line">
-                <input type="text" class="form-control date" placeholder="Descrição">
-              </div>
-            </div>
+          <div class="col-md-5 col-md-offset-1">
+            <md-input-container class="md-block" flex-gt-sm>
+              <label>Descrição</label>
+              <input ng-model="no.node.descricao">
+            </md-input-container>
           </div>
-          <div class="col-md-6 col-md-offset-3">
-            <div class="btn-group bootstrap-select form-control show-tick"><button type="button" class="btn dropdown-toggle btn-default" data-toggle="dropdown" title="-- Please select --"><span class="filter-option pull-left">-- Please select --</span>&nbsp;<span class="bs-caret"><span class="caret"></span></span></button>
-              <div class="dropdown-menu open">
-                <ul class="dropdown-menu inner" role="menu">
-                  <li data-original-index="0" class="selected"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">-- Please select --</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-                  <li data-original-index="1"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">10</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-                  <li data-original-index="2"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">20</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-                  <li data-original-index="3"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">30</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-                  <li data-original-index="4"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">40</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-                  <li data-original-index="5"><a tabindex="0" class="" style="" data-tokens="null"><span class="text">50</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
-                </ul>
-              </div>
-              <select class="form-control show-tick">
-                  <option value="">-- Please select --</option>
-                  <option value="10">10</option>
-                  <option value="20">20</option>
-                  <option value="30">30</option>
-                  <option value="40">40</option>
-                  <option value="50">50</option>
-                </select>
-            </div>
+          <div class="col-md-4 col-md-offset-1" layout="column">
+            <md-input-container>
+              <label>Identificador</label>
+              <md-select ng-model="no.node.nodeSelected">
+                <md-option ng-repeat="node in no.nodeArray" value="{{node}}">{{node}}</md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div class="col-md-12">
+            <gm-map options="no.optionsMaps">
+              <gm-marker position="map.getCenter()" options="no.optionsMarkers" on-dragend="no.node.data.position = marker.getPosition()">
+              </gm-marker>
+            </gm-map>
+            <md-button class="md-raised md-primary pull-right" data-ng-click="no.save()">Salvar</md-button>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 </div>
