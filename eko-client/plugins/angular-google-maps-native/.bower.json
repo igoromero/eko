@@ -1,0 +1,45 @@
+{
+  "name": "angular-google-maps-native",
+  "version": "2.0.0",
+  "date": "2015-08-09",
+  "description": "AngularJS directives for the Google Maps API using the native way",
+  "author": {
+    "name": "Jean-Baptiste DEMONTE",
+    "email": "jbdemonte@gmail.com",
+    "url": "http://jb.demonte.fr"
+  },
+  "license": "GPL-3.0+",
+  "main": "./dist/angular-google-maps-native.min.js",
+  "keywords": [
+    "angularjs",
+    "google",
+    "maps",
+    "googlemaps",
+    "directives"
+  ],
+  "dependencies": {
+    "angular": "1.2 - 1.4"
+  },
+  "ignore": [
+    "*.json",
+    "assets",
+    "tests",
+    "examples",
+    "src",
+    "gulpfile.js",
+    ".gitignore",
+    ".travis.yml",
+    "README.md"
+  ],
+  "homepage": "https://github.com/jbdemonte/angular-google-maps-native",
+  "_release": "2.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "2.0.0",
+    "commit": "12b741287f4e75c3be562764ddc4d53f568ed007"
+  },
+  "_source": "https://github.com/jbdemonte/angular-google-maps-native.git",
+  "_target": "^2.0.0",
+  "_originalSource": "angular-google-maps-native",
+  "_direct": true
+}
