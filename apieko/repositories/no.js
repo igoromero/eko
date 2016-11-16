@@ -46,8 +46,7 @@ module.exports = {
 
 
     create: (data, cb) => {
-        let no = {talhao: data.talhao, latlong: data.latlong, safra: data.safra, noid: data.noid };
-
+        let no = {descricao: data.descricao, lat: data.lat, long: data.long, noid: data.noid };
         No.collection.insert(no, (err, no) => {
 
             let data = {};
