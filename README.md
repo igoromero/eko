@@ -1,2 +1,0 @@
-# eko
-This Repository  TCC 

@@ -10,7 +10,7 @@
   function noController($mdToast) {
     var vm = this;
     vm.title = 'No';
-    
+
     (function init() {
       configMaps();
       vm.node = {};
@@ -19,9 +19,9 @@
 
     function configMaps() {
       vm.optionsMaps = {
-        center: [37, -122], 
-        zoom: 4, 
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        center: [-9.061209, -40.205751],
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
       };
 
       vm.optionsMarkers = {
