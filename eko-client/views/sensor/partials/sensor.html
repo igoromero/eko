@@ -1,0 +1,17 @@
+<div class="block-header" style="margin-top:60px">
+  <h2>{{sensor.title}}</h2>
+</div>
+<!-- CPU Usage -->
+<div class="row clearfix">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="card">
+      <div class="header">
+        <h2>{{sensor.sensorName | uppercase}}</h2>
+      </div>
+      <div>
+        <nvd3 options="sensor.options" data="sensor.data"></nvd3>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- #END# CPU Usage -->

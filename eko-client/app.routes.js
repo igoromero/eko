@@ -13,7 +13,7 @@
         controller: 'panelController',
         controllerAs: 'panel'
       })
-      .when('/no/', {
+      .when('/no', {
         templateUrl: 'views/no/partials/no.html', 
         controller: 'noController', 
         controllerAs: 'no'
@@ -23,6 +23,16 @@
         controller: 'noController', 
         controllerAs: 'no'
 
+      })
+      .when('/sensores', {
+        templateUrl: 'views/sensor/partials/view_sensores.html',
+        //controller: 'sensorController',
+        //controllerAs: 'sensor'
+      })
+      .when('/sensor/:sensor', {
+        templateUrl: 'views/sensor/partials/sensor.html',
+        controller: 'sensorController',
+        controllerAs: 'sensor'
       })
       .otherwise({
         redirectTo: '/dashboard'
