@@ -9,7 +9,10 @@
     "express": "^4.14.0",
     "getmodule": "^1.0.0",
     "mongoose": "^4.5.4",
-    "minimatch": "^3.0.2"
+    "minimatch": "^3.0.2",
+    "bcrypt-nodejs": "0.0.3",
+    "jwt-simple": "^0.2.0",
+    "moment": "^2.9.0"
   },
   "devDependencies": {},
   "scripts": {

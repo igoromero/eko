@@ -19,12 +19,20 @@
     })();
 
     function configMaps() {
+<<<<<<< HEAD
       vm.options = {
         map: {
           center: [-14.203587041742852, -42.1953125],
           zoom: 4,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         },
+=======
+      vm.optionsMaps = {
+        center: [-9.061209, -40.205751],
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.SATELLITE
+      };
+>>>>>>> 8e76018a000411def0c93bfa6c5c80a2fdb1af2e
 
         marker: {
           clickable: false,

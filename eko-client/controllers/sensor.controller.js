@@ -69,10 +69,10 @@
     function setDataChart() {
       vm.data = [{
         "key": "No 01",
-        "values": getNo(32777)
+        "values": getNo(vm.sensorName)
       }, {
         "key": "No 02",
-        "values": getNo(32772)
+        "values": getNo(vm.sensorName)
       }].map(function (sensor) {
         sensor.values = sensor.values.map(function (d) {
           return {
@@ -90,14 +90,30 @@
       }).then(setDataChart);
     }
 
-    function getNo(noId) {
+    function getNo(sensorName) {
       var no = [];
-      vm.sensor.filter(function(registro) {
+      if (sensorName === 'es1100') {
+        vm.sensor.filter(function (registro) {
+          var dia = new Date(registro.data);
+          if (dia.getHours() === 12) {
+            no.push([dia, registro.umidadeIntSolo]);
+          }
+        });
+      } else if (sensorName === 'es1110') {
+        vm.sensor.filter(function (registro) {
+          var dia = new Date(registro.data);
+          if (dia.getHours() === 12) {
+            no.push([dia, registro.umidadeIntSolo]);
+          }
+        });
+      } else if (sensorName === 'es1201') {
+        vm.sensor.filter(function(registro) {
         var dia = new Date(registro.data);
-        if (registro.noid === noId && dia.getHours() === 12) {
-          no.push([dia, registro.umidadeIntSolo]);
+        if (dia.getHours() === 12) {
+          no.push([dia, registro.umidade, registro.temperatura, registro.pontoOrvalho]);
         }
       });
+      }
       return no;
     }
 
