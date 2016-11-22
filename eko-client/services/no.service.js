@@ -6,10 +6,11 @@
     NoService.$inject = ['$http'];
 
     function NoService($http) {
-      var url = 'http://52.67.66.143:2500/v1/nos';
+      var urlCrud = 'http://52.67.66.143:2500/v1/nos';
+      var urlInfo = 'http://52.67.66.143:2500/v1/registros/nos';
 
       function _registerNo(data) {
-        return $http.post(url, data).then((response) => {
+        return $http.post(urlCrud, data).then((response) => {
           return response.data;
         }).catch((err) => { 
           return err.data;
@@ -17,7 +18,15 @@
       }
 
       function _getNos() {
-        return $http.get(url).then((response) => {
+        return $http.get(urlCrud).then((response) => {
+          return response.data;
+        }).catch((err) => {
+          return err.data;
+        });
+      }
+
+      function _getInfoNos() {
+        return $http.get(urlInfo).then((response) => {
           return response.data;
         }).catch((err) => {
           return err.data;
@@ -25,8 +34,9 @@
       }
 
       return {
+        registerNo: _registerNo, 
         getNos: _getNos,
-        registerNo: _registerNo
+        getInfoNos: _getInfoNos
       };
     }
 })();

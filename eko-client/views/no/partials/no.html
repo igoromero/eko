@@ -4,21 +4,70 @@
     <div class="card">
       <div class="header bg-cyan">
         <h2>
-          Nós
+          REGIÃO MONITORADA
+          <small>Acompanhe a região onde a rede de sensores sem fio foi instalada</small>
         </h2>
       </div>
       <div class="body">
         <div class="row clearfix">
           <div class="col-md-12">
             <gm-map options="no.options.map">
-              <gm-marker 
-                data-ng-repeat="sensor in no.registeredNodes" 
-                position="[{{sensor.lat}},{{sensor.long}}]" 
-              >
+              <gm-marker data-ng-repeat="sensor in no.registeredNodes" position="[{{sensor.lat}},{{sensor.long}}]">
               </gm-marker>
             </gm-map>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="header bg-cyan">
+        <h2>
+          INFORMAÇÕES SOBRE OS SENSORES
+          <small>Acompanhe dados como temperatura, nível de bateria e outros dados de cada sensor</small>
+        </h2>
+      </div>
+      <div class="body table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>DATA</th>
+              <th>NO ID</th>
+              <th>VOLTAGEM DA BATERIA</th>
+              <th>VOLTAGEM SOLAR</th>
+              <th>TEMPERATURA INTERNA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-repeat="nodeInfo in no.nodeInfoArray">
+              <th scope="row">{{nodeInfo.data | date:'dd/MM/yyyy'}}</th>
+              <td>{{nodeInfo.noid}}</td>
+              <td>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" data-ng-class="{'bg-red': {{nodeInfo.bv}} < 3, 'bg-orange': {{nodeInfo.bv}} <= 7, 'bg-green': {{nodeInfo.bv}} > 7}"
+                    aria-valuenow="{{nodeInfo.bv * 100 / 12}}" aria-valuemin="0" aria-valuemax="100" style="width: 62%">
+                    {{nodeInfo.bv * 100 / 12 | number:2}}%
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" data-ng-class="{'bg-red': {{nodeInfo.sv}} < 3, 'bg-orange': {{nodeInfo.sv}} <= 7, 'bg-green': {{nodeInfo.sv}} > 7}"
+                    aria-valuenow="{{nodeInfo.sv * 100 / 12}}" aria-valuemin="0" aria-valuemax="100" style="width: 62%">
+                    {{nodeInfo.sv * 100 / 12 | number:2}}%
+                  </div>
+                </div>
+              </td>
+              <td>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" data-ng-class="{'bg-green': {{nodeInfo.tempInterna}} < 60, 'bg-orange': {{nodeInfo.tempInterna}} >= 60,'bg-red' : {{nodeInfo.tempInterna}} >= 80}"
+                    aria-valuenow="{{nodeInfo.tempInterna}}" aria-valuemin="0" aria-valuemax="100" style="width: 62%">
+                    {{nodeInfo.tempInterna }}%
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

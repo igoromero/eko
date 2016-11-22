@@ -14,38 +14,23 @@
     (function init() {
       configMaps();
       loadMarkers();
+      loadInfoNodes();
       vm.node = {};
       vm.nodeArray = [1, 2, 3, 4, 5, 6];
     })();
 
     function configMaps() {
-<<<<<<< HEAD
       vm.options = {
         map: {
           center: [-14.203587041742852, -42.1953125],
           zoom: 4,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         },
-=======
-      vm.optionsMaps = {
-        center: [-9.061209, -40.205751],
-        zoom: 17,
-        mapTypeId: google.maps.MapTypeId.SATELLITE
-      };
->>>>>>> 8e76018a000411def0c93bfa6c5c80a2fdb1af2e
-
         marker: {
           clickable: false,
           draggable: true
         }
       };
-
-      vm.setNodeLocation = function(node, marker) {
-      var position = marker.getPosition();
-      node.lat = position.lat();
-      node.lng = position.lng();
-    };
-
     }
 
     vm.save = function () {
@@ -75,6 +60,15 @@
     function loadMarkers() {
       NoService.getNos().then((data) => {
         vm.registeredNodes = data.nos;
+      }).catch((err) => {
+        console.log(err);
+      });
+    }
+
+    function loadInfoNodes() {
+      NoService.getInfoNos().then((data) => {
+        vm.nodeInfoArray = data.registros.slice(data.registros.length-5);
+        console.log(data);
       }).catch((err) => {
         console.log(err);
       });
