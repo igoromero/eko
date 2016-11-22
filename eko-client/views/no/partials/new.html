@@ -24,8 +24,8 @@
             </md-input-container>
           </div>
           <div class="col-md-12">
-            <gm-map options="no.optionsMaps">
-              <gm-marker position="map.getCenter()" options="no.optionsMarkers" on-dragend="no.node.data.position = marker.getPosition()">
+            <gm-map options="no.options.map">
+              <gm-marker position="map.getCenter()" options="no.options.marker" on-dragend="no.node.data.position = marker.getPosition()">
               </gm-marker>
             </gm-map>
             <md-button class="md-raised md-primary pull-right" data-ng-click="no.save()">Salvar</md-button>

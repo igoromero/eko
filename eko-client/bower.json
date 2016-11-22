@@ -23,6 +23,6 @@
     "angular-morris": "^1.3.0",
     "angular-nvd3": "^1.0.9",
     "angular-resource": "^1.5.8",
-    "angular-gm": "AngularGM#^1.0.2"
+    "angular-google-maps-native": "^2.0.0"
   }
 }

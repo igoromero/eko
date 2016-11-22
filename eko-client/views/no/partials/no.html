@@ -1,1 +1,25 @@
-<h1>{{no.title}}</h1>
+<div class="block-header"></div>
+<div class="row clearfix">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="header bg-cyan">
+        <h2>
+          Nós
+        </h2>
+      </div>
+      <div class="body">
+        <div class="row clearfix">
+          <div class="col-md-12">
+            <gm-map options="no.options.map">
+              <gm-marker 
+                data-ng-repeat="sensor in no.registeredNodes" 
+                position="[{{sensor.lat}},{{sensor.long}}]" 
+              >
+              </gm-marker>
+            </gm-map>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

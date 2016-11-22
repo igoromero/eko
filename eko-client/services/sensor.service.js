@@ -4,9 +4,9 @@
     .module('eko')
     .service('SensorService', SensorService);
 
-  SensorService.$inject = ['$http', '$q'];
+  SensorService.$inject = ['$http'];
 
-  function SensorService($http, $q) {
+  function SensorService($http) {
     var url = 'http://52.67.66.143:2500/v1/registros/';
 
     function _getSensor(sensor) {
@@ -17,7 +17,7 @@
       });
     };
 
-    return {
+    return { 
       getSensor: _getSensor
     };
   }
